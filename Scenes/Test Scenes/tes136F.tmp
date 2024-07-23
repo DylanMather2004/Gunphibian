@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://2tvmked88lys"]
+
+[ext_resource type="PackedScene" uid="uid://cydm7urjdntlb" path="res://Scenes/Prefabs/player.tscn" id="1_ed50l"]
+[ext_resource type="Texture2D" uid="uid://cqlgujetv70ns" path="res://Art/WhiteSquare .png" id="2_17l55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vi30"]
+size = Vector2(32, 32)
+
+[node name="TestMap1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ed50l")]
+position = Vector2(19, 20)
+jump_height = 600
+gravity = 1200
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(85, 546)
+scale = Vector2(-80.9266, 6.31419)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_17l55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_6vi30")

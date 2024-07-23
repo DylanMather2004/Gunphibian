@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://2tvmked88lys"]
+[gd_scene load_steps=6 format=3 uid="uid://2tvmked88lys"]
 
 [ext_resource type="PackedScene" uid="uid://cydm7urjdntlb" path="res://Scenes/Prefabs/player.tscn" id="1_ed50l"]
 [ext_resource type="Texture2D" uid="uid://cqlgujetv70ns" path="res://Art/WhiteSquare .png" id="2_17l55"]
+[ext_resource type="Texture2D" uid="uid://bdjl2i2tm5hwn" path="res://icon.svg" id="3_0c8wt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vi30"]
 size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iynu"]
+size = Vector2(10.8532, 20)
 
 [node name="TestMap1" type="Node2D"]
 
@@ -13,7 +17,7 @@ position = Vector2(19, 20)
 jump_height = 600
 gravity = 1200
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Ground"]]
 position = Vector2(85, 546)
 scale = Vector2(-80.9266, 6.31419)
 
@@ -23,3 +27,25 @@ texture = ExtResource("2_17l55")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_6vi30")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["Ground"]]
+position = Vector2(448, 264)
+scale = Vector2(1.72554, 8.83043)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_17l55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_6vi30")
+
+[node name="Grabhook" type="Area2D" parent="." groups=["Lickable"]]
+position = Vector2(600, 160)
+
+[node name="Icon" type="Sprite2D" parent="Grabhook"]
+scale = Vector2(0.48684, 0.48684)
+texture = ExtResource("3_0c8wt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grabhook"]
+scale = Vector2(5.71258, 3.17841)
+shape = SubResource("RectangleShape2D_4iynu")
