@@ -20,7 +20,6 @@ func _draw():
 	
 		
 func _physics_process(delta):
-	
 	if jumpBuffer > 0.0:
 		jumpBuffer-=delta
 		print(jumpBuffer)
@@ -33,15 +32,11 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_released("Lick"):
 		_fling_calculation()
-	
 	move_and_slide()
-	
 	if Input.is_action_just_pressed('Jump'):
 		jumpBuffer=0.2
-		
 	if jumpBuffer>0.0&&is_on_floor():
 		velocity.y=-jump_height
-		
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(global_position,get_global_mouse_position(),collision_mask,[self])
 	query.collide_with_areas=true
@@ -50,15 +45,14 @@ func _physics_process(delta):
 		end_point=result.position
 		if result.collider.is_in_group('Lickable'):
 			line_colour = Color(0,255,0,0.5)
-			if Input.is_action_pressed("Lick"):
-				target=result.collider
-			
+			target=result.collider
 		else:
 			line_colour=Color(255,0,0,0.5)
 			target=null
 	else:
 		line_colour=Color(255,0,0,0.5)
 		end_point=get_global_mouse_position()
+		target=null
 	queue_redraw()
 	
 	
@@ -68,6 +62,4 @@ func _fling_calculation():
 		var flingvelocity =flingdir*fling_force
 		
 		velocity=flingvelocity
-		
-		
-		
+

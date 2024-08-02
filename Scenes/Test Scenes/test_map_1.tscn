@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://2tvmked88lys"]
 
-[ext_resource type="PackedScene" uid="uid://cydm7urjdntlb" path="res://Scenes/Prefabs/player.tscn" id="1_ed50l"]
-[ext_resource type="Texture2D" uid="uid://cqlgujetv70ns" path="res://Art/WhiteSquare .png" id="2_17l55"]
+[ext_resource type="PackedScene" uid="uid://cydm7urjdntlb" path="res://Scenes/Prefabs/Characters/player.tscn" id="1_ed50l"]
+[ext_resource type="Texture2D" uid="uid://cqlgujetv70ns" path="res://Art/Proto/WhiteSquare .png" id="2_17l55"]
 [ext_resource type="Texture2D" uid="uid://bdjl2i2tm5hwn" path="res://icon.svg" id="3_0c8wt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vi30"]

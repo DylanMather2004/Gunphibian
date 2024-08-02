@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvg3vfdpwvuuu"
-path="res://.godot/imported/Froggy.png-bcf9dd6be3f317ec01de6a0653f35a45.ctex"
+uid="uid://dlwbrbm7vfdqb"
+path="res://.godot/imported/pistol-001.png-ef0592ca059fba85382f5728e10ec271.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Froggy.png"
-dest_files=["res://.godot/imported/Froggy.png-bcf9dd6be3f317ec01de6a0653f35a45.ctex"]
+source_file="res://Art/Weapons/pistol-001.png"
+dest_files=["res://.godot/imported/pistol-001.png-ef0592ca059fba85382f5728e10ec271.ctex"]
 
 [params]
 

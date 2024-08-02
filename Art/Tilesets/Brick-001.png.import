@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqlgujetv70ns"
-path="res://.godot/imported/WhiteSquare .png-d6e9fca6fc7e7727369b822a9e097c66.ctex"
+uid="uid://bqqdrvdv6kd6k"
+path="res://.godot/imported/Brick-001.png-50191e5401826f3cd3cc4dc18b6abf1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/WhiteSquare .png"
-dest_files=["res://.godot/imported/WhiteSquare .png-d6e9fca6fc7e7727369b822a9e097c66.ctex"]
+source_file="res://Art/Tilesets/Brick-001.png"
+dest_files=["res://.godot/imported/Brick-001.png-50191e5401826f3cd3cc4dc18b6abf1c.ctex"]
 
 [params]
 

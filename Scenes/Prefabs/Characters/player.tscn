@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://cydm7urjdntlb"]
+
+[ext_resource type="Script" path="res://Scripts/Character Scripts/Player.gd" id="1_d4tga"]
+[ext_resource type="Texture2D" uid="uid://c6gwch8tx3ay2" path="res://Art/Characters/Froggy-001.png" id="2_b3twc"]
+[ext_resource type="Script" path="res://Scripts/Weapon and Projectile Scripts/Weapon.gd" id="3_iv6jg"]
+[ext_resource type="Texture2D" uid="uid://dlwbrbm7vfdqb" path="res://Art/Weapons/pistol-001.png" id="3_nhhut"]
+[ext_resource type="PackedScene" uid="uid://oem1otp5oyxl" path="res://Scenes/Prefabs/Projectiles/bullet.tscn" id="4_wv51l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3why"]
+size = Vector2(27, 37)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_d4tga")
+gravity = 500
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_b3twc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_v3why")
+
+[node name="Pistol" type="Node2D" parent="."]
+script = ExtResource("3_iv6jg")
+bullet_pref = ExtResource("4_wv51l")
+
+[node name="Pistol-001" type="Sprite2D" parent="Pistol"]
+position = Vector2(17, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("3_nhhut")
+
+[node name="Firepoint" type="Node2D" parent="Pistol"]
+position = Vector2(26, 0)
