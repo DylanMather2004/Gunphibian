@@ -7,18 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://oem1otp5oyxl" path="res://Scenes/Prefabs/Projectiles/bullet.tscn" id="4_wv51l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3why"]
-size = Vector2(27, 37)
+size = Vector2(18, 27)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_d4tga")
-gravity = 500
+move_speed = 200
+jump_height = 200
+gravity = 400
+acceleration = 0.5
+friction = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_b3twc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 0.5)
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_v3why")
 
 [node name="Pistol" type="Node2D" parent="."]
@@ -27,8 +31,15 @@ bullet_pref = ExtResource("4_wv51l")
 
 [node name="Pistol-001" type="Sprite2D" parent="Pistol"]
 position = Vector2(17, 1)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_nhhut")
 
 [node name="Firepoint" type="Node2D" parent="Pistol"]
 position = Vector2(26, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -92)
+zoom = Vector2(2, 2)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_bottom_margin = 0.0

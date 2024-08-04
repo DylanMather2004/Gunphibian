@@ -1,39 +1,103 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0krjyi43eqdl"]
+[gd_scene load_steps=13 format=3 uid="uid://d0krjyi43eqdl"]
 
 [ext_resource type="Script" path="res://Scripts/World Scripts/LevelGeneration.gd" id="1_oph3b"]
 [ext_resource type="Texture2D" uid="uid://cxugu775g6rnk" path="res://Art/Tilesets/Brick-002.png" id="2_c0qyd"]
+[ext_resource type="PackedScene" uid="uid://bndmvrf21lpc3" path="res://Scenes/Prefabs/Rooms/small_room_001.tscn" id="2_uislo"]
+[ext_resource type="PackedScene" uid="uid://cydm7urjdntlb" path="res://Scenes/Prefabs/Characters/player.tscn" id="3_gkcyt"]
+[ext_resource type="PackedScene" uid="uid://2unt7op7svry" path="res://Scenes/Prefabs/Rooms/small_room_002.tscn" id="3_sfm8o"]
+[ext_resource type="PackedScene" uid="uid://dsj8bn6ldcin8" path="res://Scenes/Prefabs/Rooms/corridor_001.tscn" id="4_stmmc"]
+[ext_resource type="PackedScene" uid="uid://o1f5sc544klc" path="res://Scenes/Prefabs/Rooms/tall_room_001.tscn" id="5_c83vh"]
+[ext_resource type="PackedScene" uid="uid://lxrsdltsrh8s" path="res://Scenes/Prefabs/Rooms/tall_room_002.tscn" id="6_pxqly"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvuii"]
 texture = ExtResource("2_c0qyd")
 texture_region_size = Vector2i(32, 32)
 1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
 1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
 2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
 0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
 1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
 2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
 3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
 3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
 3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_o4roy"]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_wvuii")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1n8o"]
+texture = ExtResource("2_c0qyd")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_j2eh3"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_y1n8o")
 
 [node name="LevelGenerator" type="Node2D" node_paths=PackedStringArray("CurrentRoom")]
 script = ExtResource("1_oph3b")
+Rooms = [ExtResource("2_uislo"), ExtResource("3_sfm8o"), ExtResource("4_stmmc"), ExtResource("5_c83vh"), ExtResource("6_pxqly")]
 CurrentRoom = NodePath("Start Room")
 
 [node name="Start Room" type="TileMap" parent="."]
+position = Vector2(0, 384)
 tile_set = SubResource("TileSet_o4roy")
 format = 2
-layer_0/tile_data = PackedInt32Array(196605, 1, 0, 131069, 1, 0, 65533, 1, 0, -3, 1, 0, -65539, 1, 0, -131075, 1, 0, -131074, 1, 0, -131073, 1, 0, -196608, 1, 0, -196607, 1, 0, -196606, 1, 0, -131070, 1, 0, -65534, 1, 0, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0)
+layer_0/tile_data = PackedInt32Array(-196608, 1, 0, -131072, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1, 0, -65529, 1, 0, -65528, 1, 0, -65527, 1, 0, -393216, 1, 0, -327680, 1, 0, -262144, 1, 0, -393215, 1, 0, -393214, 1, 0, -393213, 1, 0, -393212, 1, 0, -393211, 1, 0, -393210, 1, 0, -393209, 1, 0, -393208, 1, 0, -393207, 1, 0, -327671, 1, 0, -262135, 1, 0)
 
 [node name="Spawner" type="Node2D" parent="Start Room"]
-position = Vector2(192, 0)
+position = Vector2(320, 0)
+
+[node name="BG" type="TileMap" parent="Start Room"]
+modulate = Color(0.20871, 0.20871, 0.20871, 1)
+z_index = -1
+tile_set = SubResource("TileSet_j2eh3")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -327679, 0, 0, -262143, 0, 0, -196607, 0, 0, -327678, 0, 0, -262142, 0, 0, -196606, 0, 0, -327677, 0, 0, -262141, 0, 0, -196605, 0, 0, -327676, 0, 0, -262140, 0, 0, -196604, 0, 0, -327675, 0, 0, -262139, 0, 0, -196603, 0, 0, -327674, 0, 0, -262138, 0, 0, -196602, 0, 0, -327673, 0, 0, -262137, 0, 0, -196601, 0, 0, -327672, 0, 0, -262136, 0, 0, -196600, 0, 0, -196599, 0, 0, -131063, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_gkcyt")]
+position = Vector2(80, 336)
+jump_height = 350
+gravity = 500
