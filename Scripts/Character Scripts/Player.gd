@@ -58,7 +58,7 @@ func _physics_process(delta):
 	
 func _fling_calculation():
 	if target !=null:
-		var flingdir = (target.position-position).normalized()
+		var flingdir = (target.global_position-global_position).normalized()
 		var flingvelocity =flingdir*fling_force
 		
 		velocity=flingvelocity

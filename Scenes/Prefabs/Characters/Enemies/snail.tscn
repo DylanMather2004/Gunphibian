@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://74qvrk8yt17x"]
+
+[ext_resource type="Script" path="res://Scripts/Character Scripts/Enemies/Snail.gd" id="1_i84f6"]
+[ext_resource type="Texture2D" uid="uid://tpl5ld3xptle" path="res://Art/Characters/Snail.png" id="2_u582e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0xbw"]
+size = Vector2(33, 23)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ioib5"]
+b = Vector2(-22, 0)
+
+[node name="Snail" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_i84f6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_u582e")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_v0xbw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_ioib5")
