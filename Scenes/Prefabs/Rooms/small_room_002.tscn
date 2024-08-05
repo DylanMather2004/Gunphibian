@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://2unt7op7svry"]
+[gd_scene load_steps=8 format=3 uid="uid://2unt7op7svry"]
 
 [ext_resource type="Texture2D" uid="uid://cxugu775g6rnk" path="res://Art/Tilesets/Brick-002.png" id="1_r48mc"]
+[ext_resource type="PackedScene" uid="uid://cj1ayniphx3jd" path="res://Scenes/Prefabs/World/enemy_spawner.tscn" id="2_fdkxs"]
+[ext_resource type="PackedScene" uid="uid://74qvrk8yt17x" path="res://Scenes/Prefabs/Characters/Enemies/snail.tscn" id="3_2snmx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvuii"]
 texture = ExtResource("1_r48mc")
@@ -83,3 +85,7 @@ z_index = -1
 tile_set = SubResource("TileSet_j2eh3")
 format = 2
 layer_0/tile_data = PackedInt32Array(-327680, 0, 0, -262144, 0, 0, -196608, 0, 0, -131072, 0, 0, -327679, 0, 0, -262143, 0, 0, -196607, 0, 0, -131071, 0, 0, -327678, 0, 0, -262142, 0, 0, -196606, 0, 0, -131070, 0, 0, -327677, 0, 0, -262141, 0, 0, -196605, 0, 0, -131069, 0, 0, -327676, 0, 0, -262140, 0, 0, -196604, 0, 0, -131068, 0, 0, -327675, 0, 0, -262139, 0, 0, -196603, 0, 0, -131067, 0, 0, -327674, 0, 0, -262138, 0, 0, -196602, 0, 0, -131066, 0, 0, -327673, 0, 0, -262137, 0, 0, -196601, 0, 0, -131065, 0, 0, -327672, 0, 0, -262136, 0, 0, -196600, 0, 0, -131064, 0, 0, -327671, 0, 0, -262135, 0, 0, -196599, 0, 0, -131063, 0, 0)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_fdkxs")]
+position = Vector2(160, -88)
+Enemies = [ExtResource("3_2snmx")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0krjyi43eqdl"]
+[gd_scene load_steps=14 format=3 uid="uid://d0krjyi43eqdl"]
 
 [ext_resource type="Script" path="res://Scripts/World Scripts/LevelGeneration.gd" id="1_oph3b"]
 [ext_resource type="Texture2D" uid="uid://cxugu775g6rnk" path="res://Art/Tilesets/Brick-002.png" id="2_c0qyd"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://o1f5sc544klc" path="res://Scenes/Prefabs/Rooms/tall_room_001.tscn" id="5_c83vh"]
 [ext_resource type="PackedScene" uid="uid://lxrsdltsrh8s" path="res://Scenes/Prefabs/Rooms/tall_room_002.tscn" id="6_pxqly"]
 [ext_resource type="PackedScene" uid="uid://vb4ktaf5om8n" path="res://Scenes/Prefabs/Rooms/end_room_001.tscn" id="7_tjqfp"]
-[ext_resource type="PackedScene" uid="uid://74qvrk8yt17x" path="res://Scenes/Prefabs/Characters/Enemies/snail.tscn" id="10_v5vtc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvuii"]
 texture = ExtResource("2_c0qyd")
@@ -105,6 +104,3 @@ position = Vector2(80, 336)
 jump_height = 350
 gravity = 500
 fling_force = 600
-
-[node name="Snail" parent="." instance=ExtResource("10_v5vtc")]
-position = Vector2(288, 328)

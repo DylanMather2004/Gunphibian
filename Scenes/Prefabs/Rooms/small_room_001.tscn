@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bndmvrf21lpc3"]
+[gd_scene load_steps=8 format=3 uid="uid://bndmvrf21lpc3"]
 
 [ext_resource type="Texture2D" uid="uid://cxugu775g6rnk" path="res://Art/Tilesets/Brick-002.png" id="1_cgik7"]
+[ext_resource type="PackedScene" uid="uid://cj1ayniphx3jd" path="res://Scenes/Prefabs/World/enemy_spawner.tscn" id="2_3dx2j"]
+[ext_resource type="PackedScene" uid="uid://74qvrk8yt17x" path="res://Scenes/Prefabs/Characters/Enemies/snail.tscn" id="3_bnovy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvuii"]
 texture = ExtResource("1_cgik7")
@@ -76,6 +78,10 @@ layer_0/tile_data = PackedInt32Array(-65536, 1, 0, -393216, 1, 0, -262144, 1, 0,
 
 [node name="Spawner" type="Node2D" parent="."]
 position = Vector2(320, 0)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_3dx2j")]
+position = Vector2(232, -64)
+Enemies = [ExtResource("3_bnovy")]
 
 [node name="BG" type="TileMap" parent="."]
 modulate = Color(0.20871, 0.20871, 0.20871, 1)

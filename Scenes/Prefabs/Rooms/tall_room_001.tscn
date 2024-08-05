@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://o1f5sc544klc"]
+[gd_scene load_steps=9 format=3 uid="uid://o1f5sc544klc"]
 
 [ext_resource type="Texture2D" uid="uid://cxugu775g6rnk" path="res://Art/Tilesets/Brick-002.png" id="1_c60st"]
 [ext_resource type="PackedScene" uid="uid://bmht2rmdlk4ia" path="res://Scenes/Prefabs/World/bubble.tscn" id="2_v64ok"]
+[ext_resource type="PackedScene" uid="uid://cj1ayniphx3jd" path="res://Scenes/Prefabs/World/enemy_spawner.tscn" id="3_34l7m"]
+[ext_resource type="PackedScene" uid="uid://74qvrk8yt17x" path="res://Scenes/Prefabs/Characters/Enemies/snail.tscn" id="4_iw3tq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvuii"]
 texture = ExtResource("1_c60st")
@@ -87,3 +89,15 @@ layer_0/tile_data = PackedInt32Array(-786432, 0, 0, -720896, 0, 0, -655360, 0, 0
 
 [node name="Bubble" parent="." instance=ExtResource("2_v64ok")]
 position = Vector2(128, -280)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_34l7m")]
+position = Vector2(248, -136)
+Enemies = [ExtResource("4_iw3tq")]
+
+[node name="EnemySpawner2" parent="." instance=ExtResource("3_34l7m")]
+position = Vector2(96, -216)
+Enemies = [ExtResource("4_iw3tq")]
+
+[node name="EnemySpawner3" parent="." instance=ExtResource("3_34l7m")]
+position = Vector2(128, -56)
+Enemies = [ExtResource("4_iw3tq")]

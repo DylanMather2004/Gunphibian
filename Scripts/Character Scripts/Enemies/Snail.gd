@@ -13,3 +13,11 @@ func _physics_process(delta):
 	velocity.x=direction*_move_speed
 	move_and_slide()
 	
+
+
+func _on_area_2d_body_entered(body):
+	if body == self:
+		print('HIT')
+	if !body.is_in_group('Player')&&body!=self:
+		direction*=-1
+		$Sprite2D.scale.x *= -1
