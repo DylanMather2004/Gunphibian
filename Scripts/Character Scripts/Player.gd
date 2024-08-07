@@ -4,6 +4,10 @@ extends CharacterBody2D
 @export var jump_height = 400
 @export var gravity = 3000
 @export var fling_force = 500
+@export var max_health = 10
+@export var i_frames = 0.2
+var invincible = false
+var health 
 var jumpBuffer:float = 0.0
 @export_range(0.0,1.0)var acceleration=0.25
 @export_range(0.0,1.0)var friction=0.1
@@ -19,7 +23,8 @@ func _draw():
 		draw_line(to_local(global_position),to_local(end_point),line_colour,3,true)
 		Engine.time_scale = 0.5
 	
-		
+func _ready():
+	health = max_health
 func _physics_process(delta):
 	if jumpBuffer > 0.0:
 		jumpBuffer-=delta
@@ -64,4 +69,22 @@ func _fling_calculation():
 		var flingvelocity =flingdir*fling_force
 		
 		velocity=flingvelocity
+		
+func change_health(change):
+	if change<0&&invincible==false:
+		health+=change
+		start_i_frames()
+	else:
+		health+=change
+	health = health.clampi(0,max_health)
+	if health == 0: 
+		_die()
+func _die():
+	pass
 
+func start_i_frames():
+	invincible=true
+	$IFrameTimer.start(i_frames)
+		
+func _on_i_frame_timer_timeout():
+	invincible=false 

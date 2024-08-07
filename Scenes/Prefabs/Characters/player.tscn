@@ -44,3 +44,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.5
 drag_bottom_margin = 0.0
+
+[node name="IFrameTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
