@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://74qvrk8yt17x"]
+[gd_scene load_steps=6 format=3 uid="uid://74qvrk8yt17x"]
 
 [ext_resource type="Script" path="res://Scripts/Character Scripts/Enemies/Snail.gd" id="1_i84f6"]
 [ext_resource type="Texture2D" uid="uid://tpl5ld3xptle" path="res://Art/Characters/Snail.png" id="2_u582e"]
@@ -7,7 +7,10 @@
 b = Vector2(-22, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0xbw"]
-size = Vector2(33, 23)
+size = Vector2(30, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvsga"]
+size = Vector2(32, 23)
 
 [node name="Snail" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_i84f6")
@@ -25,7 +28,14 @@ scale = Vector2(0.666667, 0.666667)
 shape = SubResource("SegmentShape2D_ioib5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -2.5)
+position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_v0xbw")
 
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(1, -2.5)
+shape = SubResource("RectangleShape2D_lvsga")
+
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -21,3 +21,7 @@ func _on_area_2d_body_entered(body):
 	if !body.is_in_group('Player')&&body!=self:
 		direction*=-1
 		$Sprite2D.scale.x *= -1
+
+
+func _on_hurtbox_body_entered(body):
+	damage(body)

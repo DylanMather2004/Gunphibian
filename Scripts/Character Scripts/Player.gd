@@ -25,7 +25,10 @@ func _draw():
 	
 func _ready():
 	health = max_health
+	
 func _physics_process(delta):
+	if invincible:
+		print('invincible')
 	if jumpBuffer > 0.0:
 		jumpBuffer-=delta
 		print(jumpBuffer)
@@ -76,11 +79,11 @@ func change_health(change):
 		start_i_frames()
 	else:
 		health+=change
-	health = health.clampi(0,max_health)
+	health = clampi(health,0,max_health)
 	if health == 0: 
 		_die()
 func _die():
-	pass
+	print('DEAD')
 
 func start_i_frames():
 	invincible=true
