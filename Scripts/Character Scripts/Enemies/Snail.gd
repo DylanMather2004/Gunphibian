@@ -8,7 +8,7 @@ var direction=-1
 
 func _physics_process(delta):
 	if !is_on_floor():
-		velocity.y+=_gravity
+		velocity.y+=_gravity*delta
 		
 	velocity.x=direction*_move_speed
 	move_and_slide()

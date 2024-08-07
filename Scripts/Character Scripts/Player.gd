@@ -17,6 +17,7 @@ var line_colour:Color = Color(255,0,0,0.5)
 func _draw():
 	if Input.is_action_pressed("Lick"):
 		draw_line(to_local(global_position),to_local(end_point),line_colour,3,true)
+		Engine.time_scale = 0.5
 	
 		
 func _physics_process(delta):
@@ -31,6 +32,7 @@ func _physics_process(delta):
 	velocity.y+=gravity*delta
 	
 	if Input.is_action_just_released("Lick"):
+		Engine.time_scale = 1
 		_fling_calculation()
 	move_and_slide()
 	if Input.is_action_just_pressed('Jump'):
