@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dullicr5itxr4"]
+
+[ext_resource type="Script" path="res://Scripts/Weapon and Projectile Scripts/EnemyBullet.gd" id="1_kskpj"]
+[ext_resource type="Texture2D" uid="uid://bq2koqd3mvary" path="res://Art/Projectiles/Stinger.png" id="2_v14n0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jyvc"]
+size = Vector2(16, 9)
+
+[node name="Stinger" type="Area2D"]
+script = ExtResource("1_kskpj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v14n0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_4jyvc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://djdc3im4vvdji"]
+
+[ext_resource type="Texture2D" uid="uid://c4jdsod4aajkk" path="res://Art/Characters/Wasp.png" id="1_6wshs"]
+[ext_resource type="Script" path="res://Scripts/Character Scripts/Enemies/Wasp.gd" id="1_ex6cu"]
+[ext_resource type="PackedScene" uid="uid://dullicr5itxr4" path="res://Scenes/Prefabs/Projectiles/stinger.tscn" id="2_oiqsg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knsxy"]
+size = Vector2(16, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wxu23"]
+radius = 112.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtsw1"]
+size = Vector2(42, 42)
+
+[node name="Wasp" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_ex6cu")
+state = 0
+fire_rate = 1
+stinger_pref = ExtResource("2_oiqsg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_6wshs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_knsxy")
+
+[node name="DetectionRadius" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
+shape = SubResource("CircleShape2D_wxu23")
+
+[node name="ShotTimer" type="Timer" parent="."]
+
+[node name="StingPoint" type="Node2D" parent="."]
+
+[node name="WallChecker" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallChecker"]
+shape = SubResource("RectangleShape2D_dtsw1")
+
+[connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
+[connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
+[connection signal="body_entered" from="WallChecker" to="." method="_on_wall_checker_body_entered"]
