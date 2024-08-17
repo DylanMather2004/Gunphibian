@@ -8,7 +8,7 @@
 size = Vector2(16, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wxu23"]
-radius = 112.0
+radius = 128.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dtsw1"]
 size = Vector2(42, 42)
@@ -37,6 +37,7 @@ shape = SubResource("CircleShape2D_wxu23")
 [node name="StingPoint" type="Node2D" parent="."]
 
 [node name="WallChecker" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallChecker"]
 shape = SubResource("RectangleShape2D_dtsw1")

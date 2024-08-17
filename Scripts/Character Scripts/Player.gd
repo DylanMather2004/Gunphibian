@@ -28,7 +28,8 @@ func _ready():
 	
 func _physics_process(delta):
 	if invincible:
-		print('invincible')
+		if !$AnimationPlayer.is_playing():
+			$AnimationPlayer.play("IFrame")
 	if jumpBuffer > 0.0:
 		jumpBuffer-=delta
 		print(jumpBuffer)
@@ -76,6 +77,7 @@ func _fling_calculation():
 func change_health(change):
 	if change<0&&invincible==false:
 		health+=change
+		$AnimationPlayer.play("Hurt")
 		start_i_frames()
 	else:
 		health+=change
@@ -88,6 +90,8 @@ func _die():
 func start_i_frames():
 	invincible=true
 	$IFrameTimer.start(i_frames)
+	
 		
 func _on_i_frame_timer_timeout():
-	invincible=false 
+	invincible=false
+	$AnimationPlayer.play("base")

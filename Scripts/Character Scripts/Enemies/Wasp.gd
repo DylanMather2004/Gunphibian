@@ -6,10 +6,10 @@ enum STATES {IDLE,PATROL,SHOOT}
 var direction = Vector2.ZERO
 var rng = RandomNumberGenerator.new()
 var target:Node2D = null
-@export var wait_time=5
+@export var wait_time=2
 var current_time=0
 @export var fire_rate = 2
-var move_speed = 500
+@export var move_speed = 200
 var can_fire = false
 @export var stinger_pref:PackedScene
 
@@ -24,6 +24,10 @@ func _physics_process(delta):
 		STATES.PATROL:
 			velocity=direction*move_speed
 			move_and_slide()
+			current_time+=delta
+			if current_time>=wait_time:
+				current_time=0
+				state=STATES.IDLE
 		STATES.SHOOT:
 			$StingPoint.look_at(target.global_position)
 			if can_fire:
@@ -67,4 +71,4 @@ func _on_shot_timer_timeout():
 
 func _on_wall_checker_body_entered(body):
 	if state == STATES.PATROL:
-		_set_dir()
+		direction = -direction
