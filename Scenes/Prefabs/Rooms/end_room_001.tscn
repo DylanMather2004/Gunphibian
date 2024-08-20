@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://vb4ktaf5om8n"]
+[gd_scene load_steps=9 format=3 uid="uid://vb4ktaf5om8n"]
 
 [ext_resource type="Texture2D" uid="uid://cxugu775g6rnk" path="res://Art/Tilesets/Brick-002.png" id="1_7r5j2"]
+[ext_resource type="Script" path="res://Scripts/World Scripts/Door.gd" id="2_mhhlu"]
+[ext_resource type="Texture2D" uid="uid://c5o6avb26yvht" path="res://Art/Door-001.png" id="2_oehbg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvuii"]
 texture = ExtResource("1_7r5j2")
@@ -69,6 +71,9 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_y1n8o")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbbhq"]
+size = Vector2(39, 43)
+
 [node name="EndRoom" type="TileMap"]
 tile_set = SubResource("TileSet_o4roy")
 format = 2
@@ -83,3 +88,17 @@ z_index = -1
 tile_set = SubResource("TileSet_j2eh3")
 format = 2
 layer_0/tile_data = PackedInt32Array(-131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -327679, 0, 0, -262143, 0, 0, -196607, 0, 0, -327678, 0, 0, -262142, 0, 0, -196606, 0, 0, -327677, 0, 0, -262141, 0, 0, -196605, 0, 0, -327676, 0, 0, -262140, 0, 0, -196604, 0, 0, -327675, 0, 0, -262139, 0, 0, -196603, 0, 0, -327674, 0, 0, -262138, 0, 0, -196602, 0, 0, -327673, 0, 0, -262137, 0, 0, -196601, 0, 0, -327672, 0, 0, -262136, 0, 0, -196600, 0, 0, -196599, 0, 0, -131063, 0, 0, -131072, 0, 0, -196608, 0, 0)
+
+[node name="Door" type="Area2D" parent="."]
+position = Vector2(160, -56)
+script = ExtResource("2_mhhlu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_oehbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_nbbhq")
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

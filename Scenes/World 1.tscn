@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl38x61ifs0ag"]
+
+[ext_resource type="PackedScene" uid="uid://d0krjyi43eqdl" path="res://Scenes/Test Scenes/level_generator.tscn" id="1_ngxj4"]
+[ext_resource type="PackedScene" uid="uid://cydm7urjdntlb" path="res://Scenes/Prefabs/Characters/player.tscn" id="2_o6iye"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelGenerator" parent="." instance=ExtResource("1_ngxj4")]
+modulate = Color(1, 0.698039, 1, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_o6iye")]
+position = Vector2(160, 296)
+jump_height = 300

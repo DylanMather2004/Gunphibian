@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0krjyi43eqdl"]
+[gd_scene load_steps=14 format=3 uid="uid://d0krjyi43eqdl"]
 
 [ext_resource type="Script" path="res://Scripts/World Scripts/LevelGeneration.gd" id="1_oph3b"]
 [ext_resource type="Texture2D" uid="uid://cxugu775g6rnk" path="res://Art/Tilesets/Brick-002.png" id="2_c0qyd"]
 [ext_resource type="PackedScene" uid="uid://bndmvrf21lpc3" path="res://Scenes/Prefabs/Rooms/small_room_001.tscn" id="2_uislo"]
-[ext_resource type="PackedScene" uid="uid://cydm7urjdntlb" path="res://Scenes/Prefabs/Characters/player.tscn" id="3_gkcyt"]
 [ext_resource type="PackedScene" uid="uid://2unt7op7svry" path="res://Scenes/Prefabs/Rooms/small_room_002.tscn" id="3_sfm8o"]
 [ext_resource type="PackedScene" uid="uid://dsj8bn6ldcin8" path="res://Scenes/Prefabs/Rooms/corridor_001.tscn" id="4_stmmc"]
 [ext_resource type="PackedScene" uid="uid://o1f5sc544klc" path="res://Scenes/Prefabs/Rooms/tall_room_001.tscn" id="5_c83vh"]
@@ -99,9 +98,3 @@ z_index = -1
 tile_set = SubResource("TileSet_j2eh3")
 format = 2
 layer_0/tile_data = PackedInt32Array(-131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -327679, 0, 0, -262143, 0, 0, -196607, 0, 0, -327678, 0, 0, -262142, 0, 0, -196606, 0, 0, -327677, 0, 0, -262141, 0, 0, -196605, 0, 0, -327676, 0, 0, -262140, 0, 0, -196604, 0, 0, -327675, 0, 0, -262139, 0, 0, -196603, 0, 0, -327674, 0, 0, -262138, 0, 0, -196602, 0, 0, -327673, 0, 0, -262137, 0, 0, -196601, 0, 0, -327672, 0, 0, -262136, 0, 0, -196600, 0, 0, -196599, 0, 0, -131063, 0, 0)
-
-[node name="Player" parent="." instance=ExtResource("3_gkcyt")]
-position = Vector2(80, 336)
-jump_height = 350
-gravity = 500
-fling_force = 600
