@@ -40,6 +40,7 @@ func _physics_process(delta):
 		velocity.x=lerp(velocity.x,0.0,friction)
 	velocity.y+=gravity*delta
 	
+	
 	if Input.is_action_just_released("Lick"):
 		Engine.time_scale = 1
 		_fling_calculation()

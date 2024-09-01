@@ -1,3 +1,66 @@
-[gd_scene format=3 uid="uid://l0it6ilr8erk"]
+[gd_scene load_steps=6 format=3 uid="uid://l0it6ilr8erk"]
+
+[ext_resource type="Texture2D" uid="uid://bbux61q8qlcrt" path="res://Art/Tilesets/Grass-002.png" id="2_fy4gc"]
+[ext_resource type="PackedScene" uid="uid://cydm7urjdntlb" path="res://Scenes/Prefabs/Characters/player.tscn" id="2_qc2w8"]
+[ext_resource type="PackedScene" uid="uid://74qvrk8yt17x" path="res://Scenes/Prefabs/Characters/Enemies/snail.tscn" id="3_f2bri"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3md8i"]
+texture = ExtResource("2_fy4gc")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 16, -16, -16, -16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_k60ef"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_3md8i")
 
 [node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_qc2w8")]
+position = Vector2(92, 117)
+move_speed = 150
+jump_height = 280
+fling_force = 200
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_k60ef")
+format = 2
+layer_0/tile_data = PackedInt32Array(262144, 0, 0, 262145, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 327680, 0, 2, 327681, 65536, 2, 327682, 65536, 2, 327683, 65536, 2, 327684, 65536, 2, 262149, 65536, 0, 262150, 65536, 0, 262151, 131072, 1, 262152, 65536, 1, 262153, 65536, 1, 262154, 65536, 1, 262155, 65536, 1, 262156, 65536, 1, 327685, 65536, 2, 327686, 65536, 2, 327687, 65536, 2, 327688, 65536, 2, 327689, 65536, 2, 327690, 65536, 2, 327691, 65536, 2, 327692, 131072, 2, 196615, 0, 0, 196619, 65536, 0, 196618, 65536, 0, 196617, 65536, 0, 196616, 65536, 0, 196620, 131072, 0)
+
+[node name="Snail" parent="." instance=ExtResource("3_f2bri")]
+position = Vector2(379, 84)
