@@ -11,9 +11,9 @@ func _physics_process(delta):
 		velocity.y+=_gravity*delta
 		
 	velocity.x=direction*_move_speed
+	
 	move_and_slide()
 	
-
 
 func _on_area_2d_body_entered(body):
 	if body == self:
@@ -25,3 +25,10 @@ func _on_area_2d_body_entered(body):
 
 func _on_hurtbox_body_entered(body):
 	damage(body)
+	
+
+
+func _on_hurtbox_area_entered(area):
+	if area.is_in_group('Bullet'):
+		print('hit')
+		$AnimationPlayer.play("hurt")
