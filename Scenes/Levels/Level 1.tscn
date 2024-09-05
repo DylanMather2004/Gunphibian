@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://l0it6ilr8erk"]
+[gd_scene load_steps=10 format=3 uid="uid://l0it6ilr8erk"]
 
 [ext_resource type="Texture2D" uid="uid://bbux61q8qlcrt" path="res://Art/Tilesets/Grass-002.png" id="2_fy4gc"]
 [ext_resource type="PackedScene" uid="uid://cydm7urjdntlb" path="res://Scenes/Prefabs/Characters/player.tscn" id="2_qc2w8"]
 [ext_resource type="PackedScene" uid="uid://74qvrk8yt17x" path="res://Scenes/Prefabs/Characters/Enemies/snail.tscn" id="3_f2bri"]
 [ext_resource type="PackedScene" uid="uid://bmht2rmdlk4ia" path="res://Scenes/Prefabs/World/bubble.tscn" id="4_vx2b4"]
+[ext_resource type="Script" path="res://Scripts/Game Scripts/GameManager.gd" id="5_7snrx"]
+[ext_resource type="PackedScene" uid="uid://c0gxti5hs8hdg" path="res://GameOverUI.tscn" id="6_jrpnt"]
+[ext_resource type="PackedScene" uid="uid://doxddrqq4347p" path="res://Scenes/Prefabs/World/Obstacles/spike.tscn" id="7_3j8il"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3md8i"]
 texture = ExtResource("2_fy4gc")
@@ -68,3 +71,20 @@ position = Vector2(379, 84)
 
 [node name="Bubble" parent="." instance=ExtResource("4_vx2b4")]
 position = Vector2(447, -2)
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("PlayerRef")]
+script = ExtResource("5_7snrx")
+PlayerRef = NodePath("../Player")
+UIRef = ExtResource("6_jrpnt")
+
+[node name="Spike" parent="." instance=ExtResource("7_3j8il")]
+position = Vector2(216, 120)
+
+[node name="Spike2" parent="." instance=ExtResource("7_3j8il")]
+position = Vector2(200, 120)
+
+[node name="Spike3" parent="." instance=ExtResource("7_3j8il")]
+position = Vector2(184, 120)
+
+[node name="Spike4" parent="." instance=ExtResource("7_3j8il")]
+position = Vector2(168, 120)

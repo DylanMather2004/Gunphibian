@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://oem1otp5oyxl" path="res://Scenes/Prefabs/Projectiles/bullet.tscn" id="4_wv51l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3why"]
-size = Vector2(18, 19)
+size = Vector2(15, 18)
 
 [sub_resource type="Animation" id="Animation_ecwdy"]
 resource_name = "Hurt"
@@ -92,7 +92,7 @@ friction = 0.2
 texture = ExtResource("2_b3twc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0.5)
+position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_v3why")
 
 [node name="Pistol" type="Node2D" parent="."]

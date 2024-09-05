@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0gxti5hs8hdg"]
+
+[ext_resource type="Script" path="res://Scripts/UI Scripts/GameOverUI.gd" id="1_xx5js"]
+
+[node name="GameOverUI" type="CanvasLayer"]
+script = ExtResource("1_xx5js")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuitText" type="RichTextLabel" parent="Control"]
+offset_left = 249.0
+offset_top = 50.0
+offset_right = 1402.0
+offset_bottom = 699.0
+theme_override_font_sizes/normal_font_size = 100
+text = "GAME OVER"
+
+[node name="RetryButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 217.0
+offset_right = 654.0
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 34
+text = "Retry Level"
+
+[node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 407.0
+offset_right = 654.0
+offset_bottom = 462.0
+theme_override_font_sizes/font_size = 34
+text = "Quit"
+
+[node name="MapButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 315.0
+offset_right = 672.0
+offset_bottom = 370.0
+theme_override_font_sizes/font_size = 34
+text = "Return To Map"
+
+[connection signal="pressed" from="Control/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]

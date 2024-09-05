@@ -13,7 +13,11 @@ func _physics_process(delta):
 	velocity.x=direction*_move_speed
 	
 	move_and_slide()
-	
+
+func change_health(change):
+	super.change_health(change)
+	#if change <0: 
+		#$AnimationPlayer.play("hurt")
 
 func _on_area_2d_body_entered(body):
 	if body == self:

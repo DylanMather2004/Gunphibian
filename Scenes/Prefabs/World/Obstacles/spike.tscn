@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://doxddrqq4347p"]
+
+[ext_resource type="Script" path="res://Scripts/World Scripts/Hazard.gd" id="1_rk0o5"]
+[ext_resource type="Texture2D" uid="uid://dy22t4l8ggfx" path="res://Art/Obstacles/Spike.png" id="1_tefoq"]
+
+[node name="Spike" type="Area2D" groups=["hazard"]]
+script = ExtResource("1_rk0o5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tefoq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -8, 7, 7, -7, 7)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
