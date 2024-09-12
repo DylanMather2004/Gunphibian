@@ -16,6 +16,8 @@ var direction = 0
 var end_point:Vector2 = Vector2.ZERO
 var target:Node2D=null
 
+@export var weapons:Array[Node2D]
+
 signal player_dead
 
 var line_colour:Color = Color(255,0,0,0.5)
@@ -101,3 +103,4 @@ func start_i_frames():
 func _on_i_frame_timer_timeout():
 	invincible=false
 	$AnimationPlayer.play("base")
+

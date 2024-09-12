@@ -107,7 +107,7 @@ texture = ExtResource("3_nhhut")
 position = Vector2(17, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -49)
+position = Vector2(0, -40)
 zoom = Vector2(2.5, 2.5)
 position_smoothing_speed = 4.0
 drag_horizontal_enabled = true
