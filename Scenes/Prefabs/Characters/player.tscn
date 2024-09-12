@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/Character Scripts/Player.gd" id="1_d4tga"]
 [ext_resource type="Texture2D" uid="uid://c6gwch8tx3ay2" path="res://Art/Characters/Froggy-001.png" id="2_b3twc"]
-[ext_resource type="Script" path="res://Scripts/Weapon and Projectile Scripts/Weapon.gd" id="3_iv6jg"]
-[ext_resource type="Texture2D" uid="uid://dlwbrbm7vfdqb" path="res://Art/Weapons/pistol-001.png" id="3_nhhut"]
-[ext_resource type="PackedScene" uid="uid://oem1otp5oyxl" path="res://Scenes/Prefabs/Projectiles/bullet.tscn" id="4_wv51l"]
+[ext_resource type="PackedScene" uid="uid://cnud6im2fbex4" path="res://Scenes/Prefabs/Weapons/pistol.tscn" id="3_2yp7o"]
+[ext_resource type="PackedScene" uid="uid://1qx1trh7c31u" path="res://Scenes/Prefabs/Weapons/AK-47.tscn" id="4_mt42x"]
+[ext_resource type="PackedScene" uid="uid://bgtdas06llxap" path="res://Scenes/Prefabs/Weapons/Pump Shotgun.tscn" id="5_dendv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3why"]
 size = Vector2(15, 18)
@@ -95,16 +95,7 @@ texture = ExtResource("2_b3twc")
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_v3why")
 
-[node name="Pistol" type="Node2D" parent="."]
-script = ExtResource("3_iv6jg")
-bullet_pref = ExtResource("4_wv51l")
-
-[node name="Pistol-001" type="Sprite2D" parent="Pistol"]
-position = Vector2(12, 1)
-texture = ExtResource("3_nhhut")
-
-[node name="Firepoint" type="Node2D" parent="Pistol"]
-position = Vector2(17, 0)
+[node name="Pistol" parent="." instance=ExtResource("3_2yp7o")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -40)
@@ -121,5 +112,10 @@ drag_bottom_margin = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_wc21y")
 }
+
+[node name="Assault Rifle" parent="." instance=ExtResource("4_mt42x")]
+equipped = true
+
+[node name="Shotgun" parent="." instance=ExtResource("5_dendv")]
 
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
