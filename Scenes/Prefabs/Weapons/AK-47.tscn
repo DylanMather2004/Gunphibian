@@ -9,6 +9,7 @@ script = ExtResource("1_46wr8")
 bullet_pref = ExtResource("2_ywpo5")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(12, 3)
 texture = ExtResource("3_bsp6w")
 

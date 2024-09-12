@@ -48,7 +48,6 @@ func _shoot():
 	stinger.transform = $StingPoint.global_transform
 	can_fire=false
 	$ShotTimer.start(fire_rate)
-	print(stinger)
 
 
 func _on_detection_radius_body_entered(body):

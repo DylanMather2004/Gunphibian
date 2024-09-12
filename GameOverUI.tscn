@@ -12,6 +12,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="QuitText" type="RichTextLabel" parent="Control"]
+layout_mode = 0
 offset_left = 249.0
 offset_top = 50.0
 offset_right = 1402.0

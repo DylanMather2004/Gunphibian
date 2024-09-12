@@ -9,10 +9,13 @@ extends CharacterBody2D
 @export_range(1,3)var current_weapon=0
 var invincible = false
 var health 
+var grappling=false
 var paused = false
+var actual_friction
 var jumpBuffer:float = 0.0
 @export_range(0.0,1.0)var acceleration=0.25
 @export_range(0.0,1.0)var friction=0.1
+@export_range(0.0,1.0)var grapple_friction=0.01
 var direction = 0
 var end_point:Vector2 = Vector2.ZERO
 var target:Node2D=null
@@ -31,6 +34,7 @@ func _draw():
 func _ready():
 	health = max_health
 	weapons[current_weapon-1]._Equip()
+	actual_friction=friction
 	
 func _physics_process(delta):
 	if paused == false:
@@ -39,13 +43,14 @@ func _physics_process(delta):
 				$AnimationPlayer.play("IFrame")
 		if jumpBuffer > 0.0:
 			jumpBuffer-=delta
-			print(jumpBuffer)
+		
 		direction = Input.get_axis("Left","Right")
 		if direction:
 			velocity.x=lerp(velocity.x,direction*move_speed,acceleration)
 		else:
-			velocity.x=lerp(velocity.x,0.0,friction)
-		velocity.y+=gravity*delta
+			velocity.x=lerp(velocity.x,0.0,actual_friction)
+		if !is_on_floor():
+			velocity.y+=gravity*delta
 		
 		
 		if Input.is_action_just_released("Lick"):
@@ -79,6 +84,8 @@ func _fling_calculation():
 	if target !=null:
 		var flingdir = (get_global_mouse_position()-global_position).normalized()
 		var flingvelocity =flingdir*fling_force
+		actual_friction=grapple_friction
+		$GrappleTimer.start(0.3)
 		
 		velocity=flingvelocity
 		
@@ -93,7 +100,6 @@ func change_health(change):
 	if health == 0: 
 		_die()
 func _die():
-	print('DEAD')
 	emit_signal('player_dead')
 	paused=true
 
@@ -113,3 +119,7 @@ func _input(event):
 		if current_weapon>weapons.size():
 			current_weapon=1
 		weapons[current_weapon-1]._Equip()
+
+
+func _on_grapple_timer_timeout():
+	actual_friction=friction
