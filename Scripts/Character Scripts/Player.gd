@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var fling_force = 500
 @export var max_health = 10
 @export var i_frames = 0.2
+@export_range(1,3)var current_weapon=0
 var invincible = false
 var health 
 var paused = false
@@ -29,6 +30,7 @@ func _draw():
 	
 func _ready():
 	health = max_health
+	weapons[current_weapon-1]._Equip()
 	
 func _physics_process(delta):
 	if paused == false:
@@ -104,3 +106,10 @@ func _on_i_frame_timer_timeout():
 	invincible=false
 	$AnimationPlayer.play("base")
 
+func _input(event):
+	if Input.is_action_just_pressed('Weapon-Swap-Down'):
+		weapons[current_weapon-1]._Equip()
+		current_weapon+=1
+		if current_weapon>weapons.size():
+			current_weapon=1
+		weapons[current_weapon-1]._Equip()

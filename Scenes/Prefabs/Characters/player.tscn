@@ -80,13 +80,14 @@ _data = {
 "base": SubResource("Animation_r4tan")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("weapons") groups=["Player"]]
 script = ExtResource("1_d4tga")
 move_speed = 200
 jump_height = 500
 gravity = 400
 acceleration = 0.5
 friction = 0.2
+weapons = [NodePath("Pistol"), NodePath("Assault Rifle"), NodePath("Shotgun")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_b3twc")
@@ -114,7 +115,6 @@ libraries = {
 }
 
 [node name="Assault Rifle" parent="." instance=ExtResource("4_mt42x")]
-equipped = true
 
 [node name="Shotgun" parent="." instance=ExtResource("5_dendv")]
 

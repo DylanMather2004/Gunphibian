@@ -60,7 +60,7 @@ size = Vector2(96, 82)
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_qc2w8")]
-position = Vector2(92, 117)
+position = Vector2(96, 120)
 move_speed = 150
 jump_height = 280
 fling_force = 400

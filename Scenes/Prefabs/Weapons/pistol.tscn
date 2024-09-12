@@ -14,3 +14,7 @@ texture = ExtResource("3_3kdvf")
 
 [node name="Firepoint" type="Node2D" parent="."]
 position = Vector2(17, 0)
+
+[node name="ShotTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
