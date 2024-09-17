@@ -9,6 +9,7 @@ var rng = RandomNumberGenerator.new()
 var can_fire = true
 @export var fire_rate = 0.2
 @export var bullet_spread = 0.1
+@export var bullet_lifetime=0.5
 func _ready():
 	$Sprite.visible = equipped
 func _physics_process(delta):
@@ -30,6 +31,7 @@ func _Shoot():
 	bullet_instance.transform=$Firepoint.global_transform
 	rng.randomize()
 	bullet_instance.rotation += rng.randf_range(-bullet_spread,bullet_spread)
+	bullet_instance.damage=damage
 	$ShotTimer.start(fire_rate)
 	can_fire=false
 	

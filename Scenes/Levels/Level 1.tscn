@@ -64,6 +64,7 @@ position = Vector2(96, 120)
 move_speed = 150
 jump_height = 280
 fling_force = 400
+current_weapon = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_k60ef")
