@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var move_speed = 400
 @export var jump_height = 400
+@export var charge_jump_height = 600
 @export var gravity = 3000
 @export var fling_force = 500
 @export var max_health = 10
@@ -18,7 +19,9 @@ var jumpBuffer:float = 0.0
 @export_range(0.0,1.0)var grapple_friction=0.01
 var direction = 0
 
-
+var charge=0 
+enum player_states{BASE,CHARGEJUMP}
+var state = player_states.BASE
 @export var weapons:Array[Node2D]
 
 signal player_dead
@@ -43,7 +46,17 @@ func _physics_process(delta):
 			velocity.x=lerp(velocity.x,0.0,actual_friction)
 		if !is_on_floor():
 			velocity.y+=gravity*delta
-		_move_input()
+		match state:
+			player_states.BASE:
+				_move_input()
+			player_states.CHARGEJUMP:
+				if Input.is_action_pressed("Charge-Jump"):
+					charge+=delta
+				if Input.is_action_just_released("Charge-Jump"):
+					if charge>=2:
+						velocity.y=-charge_jump_height
+					charge=0
+					state=player_states.BASE
 		move_and_slide()
 		if jumpBuffer>0.0&&is_on_floor():
 			velocity.y=-jump_height
@@ -56,6 +69,8 @@ func _move_input():
 		velocity.x=lerp(velocity.x,0.0,actual_friction)
 	if Input.is_action_just_pressed('Jump'):
 			jumpBuffer=0.2
+	if Input.is_action_pressed("Charge-Jump")&&is_on_floor():
+		state=player_states.CHARGEJUMP
 
 
 func change_health(change):

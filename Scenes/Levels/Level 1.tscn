@@ -63,6 +63,7 @@ size = Vector2(96, 82)
 position = Vector2(96, 120)
 move_speed = 150
 jump_height = 280
+charge_jump_height = 400
 fling_force = 400
 current_weapon = 1
 
