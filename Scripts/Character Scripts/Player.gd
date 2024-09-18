@@ -17,20 +17,12 @@ var jumpBuffer:float = 0.0
 @export_range(0.0,1.0)var friction=0.1
 @export_range(0.0,1.0)var grapple_friction=0.01
 var direction = 0
-var end_point:Vector2 = Vector2.ZERO
-var target:Node2D=null
+
 
 @export var weapons:Array[Node2D]
 
 signal player_dead
 
-var line_colour:Color = Color(255,0,0,0.5)
-		
-func _draw():
-	if Input.is_action_pressed("Lick"):
-		draw_line(to_local(global_position),to_local(end_point),line_colour,3,true)
-		Engine.time_scale = 0.5
-	
 func _ready():
 	health = max_health
 	weapons[0]._Equip()
