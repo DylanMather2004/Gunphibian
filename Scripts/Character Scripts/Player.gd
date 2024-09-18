@@ -49,7 +49,10 @@ func _physics_process(delta):
 		match state:
 			player_states.BASE:
 				_move_input()
+				print('base')
 			player_states.CHARGEJUMP:
+				velocity.x=0
+				print('charge')
 				if Input.is_action_pressed("Charge-Jump"):
 					charge+=delta
 				if Input.is_action_just_released("Charge-Jump"):
@@ -62,15 +65,16 @@ func _physics_process(delta):
 			velocity.y=-jump_height
 
 func _move_input():
-	direction = Input.get_axis("Left","Right")
+	if state==player_states.BASE:
+		direction = Input.get_axis("Left","Right")
 	if direction:
 		velocity.x=lerp(velocity.x,direction*move_speed,acceleration)
 	else:
 		velocity.x=lerp(velocity.x,0.0,actual_friction)
 	if Input.is_action_just_pressed('Jump'):
 			jumpBuffer=0.2
-	if Input.is_action_pressed("Charge-Jump")&&is_on_floor():
-		state=player_states.CHARGEJUMP
+
+
 
 
 func change_health(change):
@@ -103,4 +107,7 @@ func _input(event):
 		if current_weapon>weapons.size():
 			current_weapon=1
 		weapons[current_weapon-1]._Equip()
+		
+	if Input.is_action_pressed("Charge-Jump"):
+		state=player_states.CHARGEJUMP
 
