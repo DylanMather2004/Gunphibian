@@ -132,7 +132,10 @@ shape = SubResource("RectangleShape2D_fdsy1")
 [node name="Bubble2" parent="." instance=ExtResource("4_vx2b4")]
 position = Vector2(1496, -136)
 
+[node name="Snail3" parent="." instance=ExtResource("3_f2bri")]
+position = Vector2(1448, -8)
+
 [node name="Snail2" parent="." instance=ExtResource("3_f2bri")]
-position = Vector2(1528, -8)
+position = Vector2(1376, -8)
 
 [connection signal="body_entered" from="Pit" to="Pit" method="_on_body_entered"]

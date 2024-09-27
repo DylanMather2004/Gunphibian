@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var gravity = 3000
 @export var fling_force = 500
 @export var max_health = 10
+@export var charge_time = 2.0
 @export var i_frames = 0.2
 @export_range(1,3)var current_weapon=0
 var invincible = false
@@ -55,9 +56,12 @@ func _physics_process(delta):
 				print('charge')
 				if Input.is_action_pressed("Charge-Jump"):
 					charge+=delta
+					if charge>=charge_time:
+						$AnimationPlayer.play("Charged")
 				if Input.is_action_just_released("Charge-Jump"):
 					if charge>=2:
 						velocity.y=-charge_jump_height
+						$AnimationPlayer.play("base")
 					charge=0
 					state=player_states.BASE
 		move_and_slide()
@@ -87,6 +91,8 @@ func change_health(change):
 	health = clampi(health,0,max_health)
 	if health == 0: 
 		_die()
+		
+		
 func _die():
 	emit_signal('player_dead')
 	paused=true
